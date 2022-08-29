@@ -4,6 +4,7 @@
   "main": "main.js",
   "author": "Maz",
   "license": "MIT",
+  "description": "Youtube clone server",
   "private": true,
   "scripts": {
     "dev": "clear && tsnd --exit-child --transpile-only src/main.ts"
