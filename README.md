@@ -19,7 +19,7 @@ What things you need to install the software and how to install them
 A step by step series of examples that tell you how to get a development env running.
 
 1. Clone the repo
-   `bash [https://github.com/mazwrld/youtube-clone-backend]: # git clone [https://github.com/mazwrld/youtube-clone-backend]: # `
+   `bash git clone [https://github.com/mazwrld/youtube-clone-backend] `
 
 []: # Install dependencies
 
