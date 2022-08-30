@@ -1,7 +1,7 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || "changeme";
-const EXPIRES_IN = "7d";
+const JWT_SECRET = process.env.JWT_SECRET || 'changeme';
+const EXPIRES_IN = '7d';
 
 export function signJwt(payload: string | Buffer | object) {
   return jwt.sign(payload, JWT_SECRET, {

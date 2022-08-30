@@ -5,12 +5,9 @@ function Omit<T>(obj: T, property: keyof T | (keyof T)[]) {
 
       return !property.includes(key as keyof T);
     });
-
     return Object.fromEntries(entries);
   }
-
   const { [property]: unused, ...rest } = obj;
-
   return rest;
 }
 
