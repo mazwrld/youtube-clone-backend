@@ -43,6 +43,8 @@ const shutdown = (signal: string) => {
   });
 };
 
-for (let index = 0; index < signals.length; index++) {
-  shutdown(signals[index]);
-}
+// for (let index = 0; index < signals.length; index++) {
+//   shutdown(signals[index]);
+// }
+
+signals.forEach(signal => shutdown(signal));
