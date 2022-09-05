@@ -7,7 +7,9 @@
   "description": "Youtube clone server",
   "private": true,
   "scripts": {
-    "dev": "clear && tsnd --exit-child --transpile-only src/main.ts"
+    "dev": "clear && tsnd --exit-child --transpile-only src/main.ts",
+    "lint": "eslint --ext .ts src/",
+    "format": "prettier --write \"src/**/*.{ts,js}\""
   },
   "dependencies": {
     "@mantine/form": "^5.2.3",

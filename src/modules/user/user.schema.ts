@@ -12,7 +12,7 @@ export const registerUserSchema = {
     confirmPassword: string({
       required_error: 'Confirm Password is required.',
     }),
-  }).refine((data) => data.password === data.confirmPassword, {
+  }).refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match.',
     path: ['confirmPassword'],
   }),
