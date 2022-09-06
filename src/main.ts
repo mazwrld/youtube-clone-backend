@@ -2,12 +2,13 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import helmet from 'helmet';
-import logger from './utils/logger';
 import { CORS_ORIGIN } from './constants';
+import { connectDb, disconnectDb } from './utils/db';
+import logger from './utils/logger';
 import userRoute from './modules/user/user.routes';
 import authRoute from './modules/auth/auth.routes';
+import videoRoute from './modules/videos/video.routes';
 import deserializeUser from './middleware/deserializeUser';
-import { connectDb, disconnectDb } from './utils/db';
 
 const port = process.env.PORT || 4000;
 
@@ -26,6 +27,7 @@ app.use(deserializeUser);
 
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
+app.use('/api/videos', videoRoute);
 
 const server = app.listen(port, async () => {
   await connectDb();
