@@ -2,12 +2,12 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import helmet from 'helmet';
-import logger from './utils/logger';
 import { CORS_ORIGIN } from './constants';
+import { connectDb, disconnectDb } from './utils/db';
+import logger from './utils/logger';
 import userRoute from './modules/user/user.routes';
 import authRoute from './modules/auth/auth.routes';
 import deserializeUser from './middleware/deserializeUser';
-import { connectDb, disconnectDb } from './utils/db';
 
 const port = process.env.PORT || 4000;
 
@@ -42,9 +42,5 @@ const shutdown = (signal: string) => {
     process.exit(0);
   });
 };
-
-// for (let index = 0; index < signals.length; index++) {
-//   shutdown(signals[index]);
-// }
 
 signals.forEach(signal => shutdown(signal));
