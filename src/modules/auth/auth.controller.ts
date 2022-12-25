@@ -9,7 +9,7 @@ const loginHandler = async (req: Request<{}, {}, LoginBody>, res: Response) => {
   const { email, password } = req.body;
   const user = await findUserByEmail(email);
 
-  if (!user || !user.comparePassword(password)) {
+  if (!user || !(await user.comparePassword(password))) {
     return res.status(StatusCodes.UNAUTHORIZED).send('Invalid credentials.');
   }
 

@@ -11,7 +11,7 @@ const registerHandler = async (
   try {
     await createUser({ username, email, password });
     return res.status(StatusCodes.CREATED).send('User created successfully.');
-  } catch (error) {
+  } catch (error: any) {
     return error.code === 11000
       ? res.status(StatusCodes.CONFLICT).send('User already exists.')
       : res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error.message);
