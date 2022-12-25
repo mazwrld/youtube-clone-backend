@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-underscore-dangle */
 import busboy from 'busboy';
 import fs from 'fs';
 import { Request, Response } from 'express';

@@ -1,7 +1,6 @@
 import { getModelForClass, prop, pre } from '@typegoose/typegoose';
 import argon2 from 'argon2';
 
-// eslint-disable-next-line func-names, consistent-return, no-use-before-define
 @pre<User>('save', async function (next) {
   if (this.isModified('password') || this.isNew) {
     const hash = await argon2.hash(this.password);
