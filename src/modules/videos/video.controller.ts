@@ -93,6 +93,7 @@ export async function streamVideoHandler(req: Request, res: Response) {
     videoId: video.videoId,
     extension: video.extension,
   });
+
   const fileSizeInBytes = fs.statSync(filePath).size;
   const chunkStart = Number(range.replace(/\D/g, ''));
   const chunkEnd = Math.min(
@@ -122,10 +123,3 @@ export async function findVideosHandler(_: Request, res: Response) {
   const videos = await findVideos();
   return res.status(StatusCodes.OK).send(videos);
 }
-
-export default {
-  uploadVideoHandler,
-  updateVideoHandler,
-  streamVideoHandler,
-  findVideosHandler,
-};

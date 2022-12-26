@@ -5,7 +5,10 @@ import { findUserByEmail } from '../user/user.service';
 import { signJwt } from './auth.utils';
 import Omit from '../../helpers/omit';
 
-const loginHandler = async (req: Request<{}, {}, LoginBody>, res: Response) => {
+export async function loginHandler(
+  req: Request<{}, {}, LoginBody>,
+  res: Response
+) {
   const { email, password } = req.body;
   const user = await findUserByEmail(email);
 
@@ -27,6 +30,6 @@ const loginHandler = async (req: Request<{}, {}, LoginBody>, res: Response) => {
   });
 
   return res.status(StatusCodes.OK).send(jwt);
-};
+}
 
 export default loginHandler;
